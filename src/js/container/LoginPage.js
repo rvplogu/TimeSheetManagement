@@ -1,38 +1,29 @@
 import React from 'react';
 import LoginForm from '../component/LoginForm';
 import RegistrationForm from '../component/RegisterForm';
-import { Layout} from 'antd';
-
-const { Content, Footer } = Layout;
+import LoginLayout from '../component/common/LoginLayout';
 
 const styles ={
-    body:{
-        display: 'flex',
-        flexDirection: 'column',
-        float: 'right',
-    }
+  body:{
+    display: 'flex',
+    flexDirection: 'column',
+    float: 'right',
+  }
 };
 class LoginPage extends React.Component {
-    constructor(props){
-        super(props);
-    }
-    render(){
-        return(
-            
-            <Layout>
-            <Content>
-            <div style={styles.body}>
-            <LoginForm/>
-            <RegistrationForm/>
-            </div>
-    </Content>
-    <Footer style={{ textAlign: 'center' }}>
-      Timesheet ©2018 Created by Galo
-    </Footer>
-  </Layout>
-            
-            
-        )
-    }
+  constructor(props){
+    super(props);
+  }
+    
+  render(){
+    return(
+      <LoginLayout>
+        <div style={styles.body}>
+          <LoginForm/>
+          <RegistrationForm/>
+       </div>
+      </LoginLayout>
+    );
+  }
 }
 export default LoginPage;
