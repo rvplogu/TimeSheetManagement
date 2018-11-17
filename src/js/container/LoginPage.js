@@ -2,7 +2,6 @@ import React from 'react';
 import LoginForm from '../component/LoginForm';
 import RegistrationForm from '../component/RegisterForm';
 import LoginLayout from '../component/common/LoginLayout';
-
 const styles ={
   body:{
     display: 'flex',
@@ -19,8 +18,8 @@ class LoginPage extends React.Component {
     return(
       <LoginLayout>
         <div style={styles.body}>
-          <LoginForm/>
-          <RegistrationForm/>
+        <LoginForm/>
+        <RegistrationForm/>
        </div>
       </LoginLayout>
     );

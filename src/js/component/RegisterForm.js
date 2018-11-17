@@ -1,8 +1,6 @@
 import React from 'react';
-import { Form, Input,  Select, Button, AutoComplete } from 'antd';
+import { Form, Input, Button } from 'antd';
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
 
 
 class RegistrationFormComponent extends React.Component {
@@ -15,7 +13,7 @@ class RegistrationFormComponent extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        window.console.log('Received values of form: ', values);
       }
     });
   }
@@ -42,19 +40,9 @@ class RegistrationFormComponent extends React.Component {
     callback();
   }
 
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
     const formItemLayout = {
       labelCol: {
@@ -78,21 +66,9 @@ class RegistrationFormComponent extends React.Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
 
     return (
-      <div style={{ position: 'relative', float: 'right', top: '20%', width: 500, padding: 16}}>
+      <div style={{ position: 'relative', float: 'right', top: '50%', width: 500, padding: 16, marginBottom: 100}}>
       <h1>Sign up here</h1>
       <Form onSubmit={this.handleSubmit}>
         <FormItem

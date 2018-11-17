@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import { PropTypes} from 'prop-types';
 import { Form, Icon, Input, Button } from 'antd';
 
 const FormItem = Form.Item;
@@ -70,4 +71,8 @@ class LoginFormComponent extends React.Component {
 
 const LoginForm= Form.create()(LoginFormComponent);
 
+LoginForm.propTypes = {
+  form: PropTypes.Object,
+  
+};
 export default LoginForm;
