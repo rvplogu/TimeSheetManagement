@@ -4,10 +4,12 @@
     "index": "./index.js"
   },
   "dependencies": {
+    "ant": "^0.2.0",
     "antd": "^3.0.0",
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
     "moment": "^2.19.3",
+    "month-days": "^2.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
