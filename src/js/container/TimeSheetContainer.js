@@ -40,7 +40,7 @@ class TimeSheetContainer extends React.Component {
             <UserLayout>
             <FilterBar />
             <div>
-            <Table columns={columns} />
+            <Table columns={columns} bordered/>
             </div>
             </UserLayout>
         );

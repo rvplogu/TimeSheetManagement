@@ -21,6 +21,9 @@ class UserLayout extends React.Component {
       collapsed: !this.state.collapsed,
     });
   }
+  handleMenuClick = (url) => {
+    this.context.router.history.push(url);
+  }
 
   render() {
     return (
@@ -33,11 +36,11 @@ class UserLayout extends React.Component {
           <div className="logo" >
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
+            <Menu.Item key="1" >
               <Icon type="user" />
-              <span onClick={this.handleProfileClick}>Profile</span>
+              <span>Profile</span>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="2" >
               <Icon type="clock-circle" />
               <span>Timesheet</span>
             </Menu.Item>
@@ -61,6 +64,10 @@ class UserLayout extends React.Component {
 }
 
 UserLayout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.object,   
 };
+UserLayout.contextTypes = {
+  router: PropTypes.object,
+};
+
 export default withRouter(UserLayout);

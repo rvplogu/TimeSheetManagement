@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { PropTypes} from 'prop-types';
 import { Form, Icon, Input, Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 const FormItem = Form.Item;
 
@@ -19,6 +20,7 @@ class LoginFormComponent extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.context.router.history.push('/profile');
         console.log('Received values of form: ', values);
       }
     });
@@ -72,7 +74,11 @@ class LoginFormComponent extends React.Component {
 const LoginForm= Form.create()(LoginFormComponent);
 
 LoginForm.propTypes = {
-  form: PropTypes.Object,
-  
+  form: PropTypes.object,  
 };
-export default LoginForm;
+
+LoginForm.contextType = {
+router: PropTypes.object,
+};
+
+export default withRouter(LoginForm);
