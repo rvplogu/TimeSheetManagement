@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'antd';
+import { Select, Button } from 'antd';
 import { Month, Year } from '../../constant/Utils';
 const Option = Select.Option;
 
@@ -12,7 +12,7 @@ class FilterBar extends React.Component {
     
     render() {
         return (
-            <div>
+            <div style={{left: 8, position: 'relative'}}>
                 <span> Year : </span>
             <Select
                 showSearch
@@ -42,8 +42,11 @@ class FilterBar extends React.Component {
              {Object.keys(Month).map((value) => (
                 <Option value={value}>{Month[value]}</Option>
              ))}
+             
   </Select>
-  
+  <div style={{float: 'right'}}>
+             <Button >Edit</Button>
+             </div>
   </div>
   
         );
